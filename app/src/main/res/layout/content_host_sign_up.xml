@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_host_sign_up"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.sgadg.petcare.HostSignUp"
+    tools:showIn="@layout/activity_host_sign_up">
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/host_profPic"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp"
+        android:id="@+id/host_welcome"
+        android:textAppearance="@android:style/TextAppearance.Medium" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/host_address"
+        android:layout_below="@+id/host_welcome"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp"
+        android:hint="Enter Your Address" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/host_city"
+        android:layout_alignBottom="@+id/host_profPic"
+        android:layout_alignParentStart="true"
+        android:hint="Enter Your City" />
+
+    <ImageView
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        app:srcCompat="@drawable/com_facebook_profile_picture_blank_square"
+        android:id="@+id/host_profPic"
+        android:layout_marginTop="23dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="24dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine|textLongMessage"
+        android:ems="10"
+        android:layout_below="@+id/host_city"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp"
+        android:id="@+id/host_bio"
+        android:hint="Tell us a bit about yourself..." />
+
+    <TextView
+        android:text="What pets would you like to keep?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/host_bio"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="45dp"
+        android:id="@+id/textView"
+        android:textAppearance="@android:style/TextAppearance.Medium" />
+
+    <CheckBox
+        android:text="Dogs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/host_welcome"
+        android:layout_marginTop="18dp"
+        android:id="@+id/check_dogs" />
+
+    <CheckBox
+        android:text="Cats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/check_cats"
+        android:layout_below="@+id/check_dogs"
+        android:layout_alignStart="@+id/check_dogs" />
+
+    <CheckBox
+        android:text="Horses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/check_horses"
+        android:layout_below="@+id/check_cats"
+        android:layout_alignStart="@+id/check_cats" />
+
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/host_submit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/host_city" />
+
+
+</RelativeLayout>
