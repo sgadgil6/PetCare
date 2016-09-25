@@ -25,6 +25,8 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+import java.net.URI;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextDetails;
@@ -61,9 +63,18 @@ public class MainActivity extends AppCompatActivity {
                 AccessToken accessToken =loginResult.getAccessToken();
                 Profile profile = Profile.getCurrentProfile();
                 if(profile != null) {
-                    mTextDetails.setText("Welcome To Pet Care, " + profile.getName() + "!");
-                    Log.d("abc", profile.getFirstName());
-                    Log.d("bcd", profile.getId());
+                    String id = profile.getId();
+                    String fname = profile.getFirstName();
+                    String lname = profile.getLastName();
+                    Uri url = profile.getProfilePictureUri(128, 128);
+                    String picture = url.toString();
+                    Intent selectScreen = new Intent(MainActivity.this, Select.class);
+                    selectScreen.putExtra("id", id);
+                    selectScreen.putExtra("fname", fname);
+                    selectScreen.putExtra("lname", lname);
+                    selectScreen.putExtra("profPic", picture);
+                    startActivity(selectScreen);
+
                     //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("fb://messaging/"+profile.getId())));
 
                 }
