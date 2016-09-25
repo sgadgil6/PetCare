@@ -36,32 +36,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        facebookSDKInitialize();
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        mCallbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.activity_main);
         mTextDetails = (TextView) findViewById(R.id.text_details);
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email");
-        getLoginDetails(loginButton);
-//        setContentView(R.layout.activity_main);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
-    }
-
-    protected void getLoginDetails(LoginButton login_button) {
-        login_button.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+        loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                AccessToken accessToken =loginResult.getAccessToken();
+                //AccessToken accessToken = loginResult.getAccessToken();
                 Profile profile = Profile.getCurrentProfile();
                 if(profile != null) {
                     String id = profile.getId();
@@ -93,37 +77,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    protected void facebookSDKInitialize() {
-                FacebookSdk.sdkInitialize(getApplicationContext());
-                mCallbackManager = CallbackManager.Factory.create();
-    }
-//   @Override
-//    public void onViewCreated(View view, Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//        LoginButton loginButton = (LoginButton) view.findViewById(R.id.login_button);
-//        loginButton.setReadPermissions("email");
-//        loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                AccessToken accessToken =loginResult.getAccessToken();
-//                Profile profile = Profile.getCurrentProfile();
-//                if(profile != null) {
-//                    mTextDetails.setText("Welcome " + profile.getName());
-//                }
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//
-//            }
-//
-//            @Override
-//            public void onError(FacebookException error) {
-//
-//            }
-//        };
-//
-//    }
     @Override
     protected void onResume() {
         super.onResume();
