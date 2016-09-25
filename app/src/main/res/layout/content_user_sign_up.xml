@@ -56,15 +56,14 @@
 
     <TextView
         android:text="Dog(s)"
-        android:layout_marginTop="68dp"
         android:id="@+id/user_dogs"
         tools:text="Dog(s)"
         android:textAppearance="@android:style/TextAppearance.Medium"
-        android:layout_below="@+id/host_bio"
         android:layout_alignStart="@+id/user_welcome"
         android:layout_height="40dp"
         android:layout_width="75dp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:layout_below="@+id/user_city" />
 
     <EditText
         android:layout_width="50dp"
@@ -116,7 +115,7 @@
         android:inputType="textMultiLine|textLongMessage"
         android:ems="10"
         android:layout_marginTop="19dp"
-        android:id="@+id/host_bio"
+        android:id="@+id/user_bio"
         android:hint="Tell us a bit about yourself..."
         android:layout_below="@+id/user_city"
         android:layout_alignParentStart="true" />
@@ -137,7 +136,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/user_submit"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.Button"
         android:layout_below="@+id/user_horse"
         android:layout_centerHorizontal="true" />
 
